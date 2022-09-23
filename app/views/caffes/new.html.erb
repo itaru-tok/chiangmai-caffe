@@ -1,0 +1,6 @@
+<h1 class="text-center mt-4">Create a Caffe</h1>
+<%= form_with model: @caffe, local: true do |f| %>
+  <p><%= f.text_field :name  %></p>
+  <p><%= f.text_field :comment  %></p>
+  <%= f.submit "submit" %>
+<% end %>
