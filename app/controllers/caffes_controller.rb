@@ -20,7 +20,20 @@ class CaffesController < ApplicationController
     else
       render 'new'
     end
+  end
 
+  def edit
+    @caffe = Caffe.find(params[:id])
+  end
+
+  def update
+    @caffe = Caffe.find(params[:id])
+    if @caffe.update(refer_params)
+      flash[:notice] = "Caffe was successfully updated"
+      redirect_to @caffe
+    else
+      render 'edit'
+    end
   end
 
   private

@@ -5,12 +5,14 @@
     <div class="col-md-3 col-6">
       <div class="card mb-4 shadow-sm">
         <div class="card-body">
-          <p class="card-text">
-            <p class="card-text"><%= caffe.name  %></p>
-            <p class="card-text"><%= caffe.comment  %></p>
-          </p>
-        </p>
+          <a href="/caffes/<%= caffe.id %>">
+            <p class="card-text">
+              <p class="card-text"><%= caffe.name  %></p>
+              <p class="card-text"><%= caffe.comment  %></p>
+            </p>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
