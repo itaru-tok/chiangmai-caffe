@@ -1,5 +1,6 @@
 class CaffesController < ApplicationController
 
+
   def show
     @caffe = Caffe.find(params[:id])
   end
@@ -34,6 +35,12 @@ class CaffesController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @caffe = Caffe.find(params[:id])
+    @caffe.destroy
+    redirect_to caffes_path
   end
 
   private
