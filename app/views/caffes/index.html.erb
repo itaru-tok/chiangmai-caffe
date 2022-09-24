@@ -1,5 +1,8 @@
 <h1>Welcome to ChiangmaiCaffe</h1>
 <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+<p>
+  <%= link_to 'Create new caffe', new_caffe_path %>
+</p>
 <div class="row">
   <% @caffes.each do |caffe|  %>
     <div class="col-md-3 col-6">
@@ -11,7 +14,8 @@
               <p class="card-text"><%= caffe.comment  %></p>
             </p>
           </a>
-          <p><%= link_to "Delete",caffe_path(caffe), method: :delete %></p>
+          <td><%= link_to "Delete",caffe_path(caffe), method: :delete ,data: { confirm: "Are you sure?"} %></td>
+          <td><%= link_to "Edit", edit_caffe_path(caffe) %></td>
         </div>
       </div>
     </div>

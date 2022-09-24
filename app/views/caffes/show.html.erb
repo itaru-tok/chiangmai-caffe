@@ -1,3 +1,7 @@
-<%= @caffe.name %>
-<%= @caffe.comment %>
+<h1>Showing Caffes details</h1>
+<p><strong>Caffe Name: </strong><%= @caffe.name %></p>
+<p><strong>Comment: </strong><%= @caffe.comment %></p>
 <%= @caffe.image %>
+<%= link_to 'Edit', edit_caffe_path(@caffe) %> |
+<%= link_to 'Delete', caffe_path(@caffe), method: :delete, data: { confirm: "Are you sure?" } %> |
+<%= link_to 'Return to caffes listing', caffes_path %>
