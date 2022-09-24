@@ -1,8 +1,7 @@
 class CaffesController < ApplicationController
-
+  before_action :set_caffe, only: [:show, :edit, :update, :destroy]
 
   def show
-    @caffe = Caffe.find(params[:id])
   end
 
   def index
@@ -24,11 +23,9 @@ class CaffesController < ApplicationController
   end
 
   def edit
-    @caffe = Caffe.find(params[:id])
   end
 
   def update
-    @caffe = Caffe.find(params[:id])
     if @caffe.update(refer_params)
       flash[:notice] = "Caffe was successfully updated"
       redirect_to @caffe
@@ -38,7 +35,6 @@ class CaffesController < ApplicationController
   end
 
   def destroy
-    @caffe = Caffe.find(params[:id])
     @caffe.destroy
     redirect_to caffes_path
   end
@@ -46,5 +42,9 @@ class CaffesController < ApplicationController
   private
   def refer_params
     params.require(:caffe).permit(:name, :comment, :image)
+  end
+
+  def set_caffe
+    @caffe = Caffe.find(params[:id])
   end
 end
