@@ -13,6 +13,7 @@
               <p class="card-text"><%= caffe.name  %></p>
               <p class="card-text"><%= caffe.comment  %></p>
             </p>
+              <div class="card-img-top"><%= image_tag caffe.image.url %></div>
           </a>
           <td><%= link_to "Delete",caffe_path(caffe), method: :delete ,data: { confirm: "Are you sure?"} %></td>
           <td><%= link_to "Edit", edit_caffe_path(caffe) %></td>
