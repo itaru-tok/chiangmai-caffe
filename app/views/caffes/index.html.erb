@@ -9,14 +9,17 @@
       <div class="card mb-4 shadow-sm">
         <div class="card-body">
           <a href="/caffes/<%= caffe.id %>">
+            <div class="card-img-top"><%= image_tag caffe.image.url %></div>
             <p class="card-text">
-              <p class="card-text"><%= caffe.name  %></p>
-              <p class="card-text"><%= caffe.comment  %></p>
+              <p class="card-text"><%= caffe.name %></p>
+              <p class="card-text"><%= truncate(caffe.comment, length:50)  %></p>
             </p>
-              <div class="card-img-top"><%= image_tag caffe.image.url %></div>
           </a>
-          <td><%= link_to "Delete",caffe_path(caffe), method: :delete ,data: { confirm: "Are you sure?"} %></td>
-          <td><%= link_to "Edit", edit_caffe_path(caffe) %></td>
+          <td><%= link_to "Delete", caffe_path(caffe), class: "btn btn-outline-danger", method: :delete ,data: { confirm: "Are you sure?"} %></td>
+          <td><%= link_to "Edit", edit_caffe_path(caffe), class: "btn btn-outline-info" %></td>
+        </div>
+        <div class="card-footer text-muted">
+          <small>Created <%= time_ago_in_words(caffe.created_at) %> ago</small>
         </div>
       </div>
     </div>

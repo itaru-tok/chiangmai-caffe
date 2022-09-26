@@ -1,7 +1,7 @@
 @import 'bootstrap/dist/css/bootstrap';
 
 .navbar {
-  background-color: black !important;
+  background-color: #ffc107 !important;
 }
 
 .nav-link {
@@ -45,4 +45,8 @@ body {
 
 img {
   width: 100%;
+}
+
+a {
+color: #ffc107;
 }
