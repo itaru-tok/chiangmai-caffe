@@ -14,6 +14,7 @@ class CaffesController < ApplicationController
 
   def create
     @caffe = Caffe.new(refer_params)
+    @caffe.user = User.first
     if @caffe.save
       flash[:notice] = "Caffe was successfully created"
       redirect_to caffes_path
