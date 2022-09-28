@@ -1,0 +1,20 @@
+<h1 class="text-center mt-4">Digital Nomads</h1>
+<div class="row">
+  <% @users.each do |user|  %>
+    <div class="col-md-3 col-6">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <a href="/users/<%= user.id %>">
+            <div class="card-img-top"><%= image_tag user.avator.url %></div>
+            <p class="card-text">
+              <p class="card-text"><%= user.username %></p>
+              <p class="card-text"><%= truncate(user.introduce, length:50)  %></p>
+            </p>
+          </a>
+          <td><%= link_to "Delete", user_path(user), class: "btn btn-outline-danger", method: :delete ,data: { confirm: "Are you sure?"} %></td>
+          <td><%= link_to "Edit", edit_user_registration_path(user), class: "btn btn-outline-info" %></td>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
