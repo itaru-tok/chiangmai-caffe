@@ -3,26 +3,4 @@
 <p>
   <%= link_to 'Create new caffe', new_caffe_path %>
 </p>
-<div class="row">
-  <% @caffes.each do |caffe|  %>
-    <div class="col-md-3 col-6">
-      <div class="card mb-4 shadow-sm">
-        <div class="card-body">
-          <a href="/caffes/<%= caffe.id %>">
-            <div class="card-img-top"><%= image_tag caffe.image.url %></div>
-            <p class="card-text">
-              <p class="card-text"><%= caffe.name %></p>
-              <p class="card-text"><%= truncate(caffe.comment, length:50)  %></p>
-            </p>
-          </a>
-          <td><%= link_to "Delete", caffe_path(caffe), class: "btn btn-outline-danger", method: :delete ,data: { confirm: "Are you sure?"} %></td>
-          <td><%= link_to "Edit", edit_caffe_path(caffe), class: "btn btn-outline-info" %></td>
-        </div>
-        <div class="card-footer text-muted">
-          <small>by <%= caffe.user.username if caffe.user %></small><br>
-          <small>Created <%= time_ago_in_words(caffe.created_at) %> ago</small>
-        </div>
-      </div>
-    </div>
-  <% end %>
-</div>
+<%= render 'shared/caffe' %>
