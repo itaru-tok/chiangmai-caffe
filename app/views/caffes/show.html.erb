@@ -3,9 +3,6 @@
   <div class="row justify-content-md-center">
     <div class="col-8 mt-4">
       <div class="card text-center shadow mb-5 bg-white rounded">
-        <div class="card-header font-italic">
-          <small>by <%= @caffe.user.username if @caffe.user %></small>
-        </div>
         <div class="card-body">
           <div class="card-text"><%= image_tag @caffe.image.url %></div>
           <div class="card-text text-left"><%= simple_format(@caffe.comment) %></div>
@@ -13,6 +10,7 @@
           <%= link_to "Delete", caffe_path(@caffe), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
         </div>
         <div class="card-footer text-muted">
+          <small>by <%= @caffe.user.username if @caffe.user %></small><br>
           <small>Created <%= time_ago_in_words(@caffe.created_at) %> ago</small>
         </div>
       </div>

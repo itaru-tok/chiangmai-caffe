@@ -10,9 +10,17 @@
     <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
   </div>
   <div class="form-group">
+    <%= f.label :introduce %>
+    <%= f.text_field :introduce, autofocus: true, autocomplete: 'introduce', class: 'form-control' %>
+  </div>
+  <div class="form-group">
     <%= f.label :password %>
     <%= f.password_field :password, autocomplete: 'new-password', class: 'form-control' %>
     <small class="form-text text-muted"><%= t('.leave_blank_if_you_don_t_want_to_change_it') %></small>
+  </div>
+  <div class="form-group">
+    <%= f.label :profile_image %>
+    <%= f.file_field :avator, accept: "image/png,image/jpeg,image/jpg,image/gif" %>
   </div>
   <div class="form-group">
     <%= f.label :password_confirmation %>
