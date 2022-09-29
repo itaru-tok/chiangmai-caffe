@@ -1,3 +1,12 @@
 // Place all the styles related to the caffes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.index-user .index-round-img {
+  width: 40px;
+  height: 40px;
+  float: left;
+  position: relative;
+  bottom: 9px;
+  border-radius: 50%;
+  margin: 0px 5px 0px 0px;
+}

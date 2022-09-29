@@ -14,7 +14,12 @@
           <td><%= link_to "Edit", edit_caffe_path(caffe), class: "btn btn-outline-info" %></td>
         </div>
         <div class="card-footer text-muted">
-          <small>by <%= caffe.user.username if caffe.user %></small><br>
+          <div class="index-user" >
+            <% if caffe.user %>
+              <%= image_tag caffe.user.avator.url, class: "index-round-img" %>
+              by <%= link_to caffe.user.username, user_path(caffe.user) %><br>
+            <% end %>
+          </div>
           <small>Created <%= time_ago_in_words(caffe.created_at) %> ago</small>
         </div>
       </div>
