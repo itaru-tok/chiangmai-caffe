@@ -4,8 +4,10 @@ class CaffesController < ApplicationController
   def show
   end
 
+  PER_PAGE = 20
+
   def index
-    @caffes = Caffe.all
+    @caffes = Caffe.page(params[:page]).order(created_at: :desc).per(PER_PAGE)
   end
 
   def new

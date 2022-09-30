@@ -28,7 +28,8 @@ gem 'devise-bootstrap-views', '~> 1.0'
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
 gem 'font_awesome5_rails'
-gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+gem 'kaminari'
+gem 'bootstrap4-kaminari-views'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
