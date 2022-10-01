@@ -9,4 +9,5 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @caffes = @user.caffes.page(params[:page]).order(created_at: :desc).per(PER_PAGE)
   end
+
 end

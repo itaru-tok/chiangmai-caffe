@@ -1,5 +1,6 @@
 class CaffesController < ApplicationController
   before_action :set_caffe, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def show
   end

@@ -1,7 +1,9 @@
-<h1 class="text-center">Welcome to ChiangmaiCaffe</h1>
-<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-<p>
-  <%= link_to 'Create new caffe', new_caffe_path %>
-</p>
-<%= render 'shared/caffe' %>
-<%= paginate @caffes %>
+<div class="container mt-5">
+  <h1 class="text-center">Welcome to ChiangmaiCaffe</h1>
+  <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+  <p>
+    <%= link_to 'Create new caffe', new_caffe_path %>
+  </p>
+  <%= render 'shared/caffe' %>
+  <%= paginate @caffes %>
+</div>
