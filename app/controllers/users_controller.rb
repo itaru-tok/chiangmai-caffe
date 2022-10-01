@@ -7,6 +7,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @caffes = @user.caffes
+    @caffes = @user.caffes.page(params[:page]).order(created_at: :desc).per(PER_PAGE)
   end
 end
