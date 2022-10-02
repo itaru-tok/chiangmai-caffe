@@ -1,6 +1,8 @@
 class CaffesController < ApplicationController
   before_action :set_caffe, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :require_same_user, only: [:new, :create, :edit, :update, :destroy]
+
 
   def show
   end
@@ -50,5 +52,12 @@ class CaffesController < ApplicationController
 
   def set_caffe
     @caffe = Caffe.find(params[:id])
+  end
+
+  def require_same_user
+    if current_user != @caffe.user
+      flash[:alert] = "You can only edit or delete your own caffe"
+      redirect_to @caffe
+    end
   end
 end
