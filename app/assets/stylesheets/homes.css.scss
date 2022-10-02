@@ -34,17 +34,17 @@
     }
 
     .slide1 {
-      background-image: url(https://images.pexels.com/photos/1563356/pexels-photo-1563356.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+      background-image: url(caffe1.jpeg);
       animation: 20s slides-set-1 -0.1s infinite;
     }
 
     .slide2 {
-      background-image: url(https://images.pexels.com/photos/36717/amazing-animal-beautiful-beautifull.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+      background-image: url(caffe2.jpeg);
       animation: 20s slides-set-2 -0.1s infinite;
     }
 
     .slide3 {
-      background-image: url(https://images.pexels.com/photos/313782/pexels-photo-313782.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+      background-image: url(caffe3.jpeg);
       animation: 20s slides-set-3 -0.1s infinite;
     }
 
@@ -102,7 +102,7 @@
       background-image: linear-gradient(to bottom,
           rgba(200, 200, 75, 0.25) 0,
           rgba(200, 75, 75, 0.5) 100%),
-        url(https://images.pexels.com/photos/1563356/pexels-photo-1563356.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+        url(caffe1.jpeg);
 
       animation: 20s slides-set-1 -0.2s infinite;
     }
@@ -111,7 +111,7 @@
       background-image: linear-gradient(to bottom,
           rgba(200, 200, 75, 0.25) 0,
           rgba(200, 75, 75, 0.5) 100%),
-        url(https://images.pexels.com/photos/36717/amazing-animal-beautiful-beautifull.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+        url(caffe2.jpeg);
 
       animation: 20s slides-set-2 -0.2s infinite;
     }
@@ -120,7 +120,7 @@
       background-image: linear-gradient(to bottom,
           rgba(200, 200, 75, 0.25) 0,
           rgba(200, 75, 75, 0.5) 100%),
-        url(https://images.pexels.com/photos/313782/pexels-photo-313782.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+        url(caffe3.jpeg);
 
       animation: 20s slides-set-3 -0.2s infinite;
     }

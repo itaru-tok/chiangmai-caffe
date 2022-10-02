@@ -10,7 +10,7 @@
           <%= link_to "Delete", caffe_path(@caffe), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
         </div>
         <div class="card-footer text-muted">
-          by <%= link_to @caffe.user.username, user_path(user) %><br>
+          by <%= link_to @caffe.user.username, user_path %><br>
           <small>Created <%= time_ago_in_words(@caffe.created_at) %> ago</small>
         </div>
       </div>

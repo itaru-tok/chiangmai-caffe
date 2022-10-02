@@ -54,6 +54,12 @@
           <%= link_to("Logout", destroy_user_session_path, class: "btn btn-xs btn-danger logout-button", method: :delete) %>
         </li>
       </ul>
+    <% else %>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <%= link_to "Guest login(for viewing)", users_guest_sign_in_path, class: "btn btn-xs btn-danger logout-button", method: :post %>
+        </li>
+      </ul>
     <% end %>
   </div>
 </nav>
