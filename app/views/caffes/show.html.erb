@@ -6,8 +6,10 @@
         <div class="card-body">
           <div class="card-text"><%= image_tag @caffe.image.url %></div>
           <div class="card-text text-left"><%= simple_format(@caffe.comment) %></div>
-          <%= link_to "Edit", edit_caffe_path(@caffe), class: "btn btn-outline-info" %>
-          <%= link_to "Delete", caffe_path(@caffe), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+          <% if user_signed_in? and @caffe.user == current_user %>
+            <%= link_to "Edit", edit_caffe_path(@caffe), class: "btn btn-outline-info" %>
+            <%= link_to "Delete", caffe_path(@caffe), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+          <% end %>
         </div>
         <div class="card-footer text-muted">
           by <%= link_to @caffe.user.username, user_path %><br>

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  PER_PAGE = 20
+  PER_PAGE = 16
 
   def index
     @users = User.page(params[:page]).order(created_at: :desc).per(PER_PAGE)

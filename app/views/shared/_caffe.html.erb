@@ -1,4 +1,5 @@
 <div class="container">
+  <h1 class="text-center mt-4">Caffe list</h1>
   <div class="row">
     <% @caffes.each do |caffe|  %>
       <div class="col-md-3 col-6">
@@ -11,8 +12,10 @@
                 <p class="card-text"><%= truncate(caffe.comment, length:50)  %></p>
               </p>
             </a>
-            <td><%= link_to "Delete", caffe_path(caffe), class: "btn btn-outline-danger", method: :delete ,data: { confirm: "Are you sure?"} %></td>
-            <td><%= link_to "Edit", edit_caffe_path(caffe), class: "btn btn-outline-info" %></td>
+            <% if user_signed_in? and caffe.user == current_user %>
+              <td><%= link_to "Delete", caffe_path(caffe), class: "btn btn-outline-danger", method: :delete ,data: { confirm: "Are you sure?"} %></td>
+              <td><%= link_to "Edit", edit_caffe_path(caffe), class: "btn btn-outline-info" %></td>
+            <% end %>
           </div>
           <div class="card-footer text-muted">
             <div class="index-user" >
