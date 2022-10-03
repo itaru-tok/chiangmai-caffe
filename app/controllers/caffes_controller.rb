@@ -10,7 +10,7 @@ class CaffesController < ApplicationController
   PER_PAGE = 16
 
   def index
-    @caffes = Caffe.page(params[:page]).order(created_at: :desc).per(PER_PAGE)
+    @caffes = Caffe.page(params[:page]).includes(:user, :likes).order(created_at: :desc).per(PER_PAGE)
   end
 
   def new

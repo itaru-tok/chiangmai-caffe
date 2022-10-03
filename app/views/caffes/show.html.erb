@@ -6,6 +6,13 @@
         <div class="card-body">
           <div class="card-text"><%= image_tag @caffe.image.url %></div>
           <div class="card-text text-left"><%= simple_format(@caffe.comment) %></div>
+          <p id="caffe-<%= @caffe.id %>">
+            <% if @caffe.liked_by?(current_user) %>
+              <%= render "like", caffe: @caffe %>
+            <% else %>
+              <%= render "dislike", caffe: @caffe %>
+            <% end %>
+          </p>
           <% if user_signed_in? and @caffe.user == current_user %>
             <%= link_to "Edit", edit_caffe_path(@caffe), class: "btn btn-outline-info" %>
             <%= link_to "Delete", caffe_path(@caffe), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>

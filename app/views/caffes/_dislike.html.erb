@@ -1,0 +1,4 @@
+<%= link_to caffe_likes_path(caffe), {method: :post, remote: true } do %>
+  <i class="fa fa-heart"></i>
+<% end %>
+<%= caffe.likes_count %>

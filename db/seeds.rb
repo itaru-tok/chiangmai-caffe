@@ -66,3 +66,29 @@
 # Caffe.create!(name: "caffe nimman", comment: "Fantastic place for Digital Nomad", user_id: user8.id)
 # puts "初期データの投入に成功しました！"
 # AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
+# likeのデータ追加
+# user = User.find_by(id: 1)
+# user2 = User.find_by(id: 2)
+# user3 = User.find_by(id: 3)
+# user4 = User.find_by(id: 4)
+# user5 = User.find_by(id: 5)
+# user6 = User.find_by(id: 6)
+# user7 = User.find_by(id: 7)
+
+# caffe1 = Caffe.find_by(id: 1)
+# caffe2 = Caffe.find_by(id: 2)
+# caffe3 = Caffe.find_by(id: 3)
+# caffe4 = Caffe.find_by(id: 4)
+# caffe5 = Caffe.find_by(id: 5)
+# caffe6 = Caffe.find_by(id: 6)
+# caffe7 = Caffe.find_by(id: 7)
+
+# caffe1.likes.create!(user_id: user6.id)
+# caffe2.likes.create!(user_id: user2.id)
+# caffe3.likes.create!(user_id: user.id)
+# caffe4.likes.create!(user_id: user5.id)
+# caffe5.likes.create!(user_id: user2.id)
+# caffe6.likes.create!(user_id: user3.id)
+# caffe7.likes.create!(user_id: user.id)
+# puts "初期データの投入に成功しました！"
