@@ -5,6 +5,7 @@
       <div class="card text-center shadow mb-5 bg-white rounded">
         <div class="card-body">
           <div class="card-text"><%= image_tag @caffe.image.url %></div>
+          <p class="card-text"><%= @caffe.area %></p>
           <div class="card-text text-left"><%= simple_format(@caffe.comment) %></div>
           <p id="caffe-<%= @caffe.id %>">
             <% if @caffe.liked_by?(current_user) %>

@@ -8,6 +8,7 @@
             <a href="/caffes/<%= caffe.id %>">
               <div class="card-img-top"><%= image_tag caffe.image.url %></div>
               <p class="card-text">
+                <p class="card-text"><%= caffe.area %></p>
                 <p class="card-text"><%= caffe.name %></p>
                 <p class="card-text"><%= truncate(caffe.comment, length:50)  %></p>
               </p>
