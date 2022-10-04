@@ -39,12 +39,12 @@ ActiveRecord::Schema.define(version: 2022_10_03_142858) do
   end
 
   create_table "caffes", force: :cascade do |t|
-    t.string "name"
-    t.text "comment"
+    t.string "name", null: false
+    t.text "comment", null: false
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.integer "likes_count", default: 0
     t.string "area"
   end
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2022_10_03_142858) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "username"
+    t.string "username", null: false
     t.string "introduce"
     t.string "avator"
     t.index ["email"], name: "index_users_on_email", unique: true

@@ -1,7 +1,7 @@
 @import 'bootstrap/dist/css/bootstrap';
 
 .navbar {
-  background-color: #ffc107 !important;
+  background-color: #282623 !important;
 }
 
 .nav-link {
@@ -59,8 +59,9 @@ color: #ffc107;
   border-color: white;
 }
 
-h1 {
+h1,h2,h3,h4 {
   margin-bottom: 40px;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
 // kaminari view bootstrap4
@@ -118,4 +119,8 @@ h1 {
 .user-name {
   margin-top: 3.5%;
   padding-right: 5px;
+}
+
+* {
+  font-family: 'Noto Sans JP', sans-serif;
 }
