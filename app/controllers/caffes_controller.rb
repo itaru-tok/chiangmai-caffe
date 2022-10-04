@@ -47,7 +47,7 @@ class CaffesController < ApplicationController
 
   private
   def refer_params
-    params.require(:caffe).permit(:name, :comment, :image)
+    params.require(:caffe).permit(:name, :comment, :image, :area)
   end
 
   def set_caffe
