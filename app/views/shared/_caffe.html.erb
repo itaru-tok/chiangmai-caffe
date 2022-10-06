@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container top-page">
   <h1 class="text-center mt-4">Caffe list</h1>
   <div class="row">
     <% @caffes.each do |caffe|  %>
@@ -7,37 +7,50 @@
           <div class="card-body">
             <a href="/caffes/<%= caffe.id %>">
               <div class="card-img-top"><%= image_tag caffe.image.url %></div>
-              <p class="card-text">
-                <p class="card-text"><%= caffe.area %></p>
-                <p class="card-text"><%= caffe.name %></p>
-                <p class="card-text"><%= truncate(caffe.comment, length:50)  %></p>
-              </p>
-            </a>
-            <p id="caffe-<%= caffe.id %>">
-              <% if user_signed_in? %>
-                <% if caffe.liked_by?(current_user) %>
-                  <%= render "caffes/like", caffe: caffe %>
-                <% else %>
-                  <%= render "caffes/dislike", caffe: caffe %>
+              <div class="card-text-container" >
+                <% if caffe.area == "Nimman" %>
+                  <p class="card-text "><span class="area-label"><%= caffe.area %></span></p>
+                <% elsif caffe.area == "Old Town" %>
+                  <p class="card-text "><span class="area-label2"><%= caffe.area %></span></p>
+                <% elsif caffe.area == "Other" %>
+                  <p class="card-text "><span class="area-label2"><%= caffe.area %></span></p>
                 <% end %>
-              <% end %>
-            </p>
-            <% if user_signed_in? and caffe.user == current_user %>
-              <td><%= link_to "Delete", caffe_path(caffe), class: "btn btn-outline-danger", method: :delete ,data: { confirm: "Are you sure?"} %></td>
-              <td><%= link_to "Edit", edit_caffe_path(caffe), class: "btn btn-outline-info" %></td>
-            <% end %>
-          </div>
-          <div class="card-footer text-muted">
-            <div class="index-user" >
-              <% if caffe.user %>
-                <%= image_tag caffe.user.avator.url, class: "index-round-img" %>
-                by <%= link_to caffe.user.username, user_path(caffe.user) %><br>
-              <% end %>
+                <p class="card-text caffe-name"><%= caffe.name %></p>
+                <p class="card-text"><%= truncate(caffe.comment, length:28)  %></p>
+              </div>
+            </a>
+            <div class="like-container">
+              <p id="caffe-<%= caffe.id %>">
+                <% if user_signed_in? %>
+                  <% if caffe.liked_by?(current_user) %>
+                    <%= render "caffes/like", caffe: caffe %>
+                  <% else %>
+                    <%= render "caffes/dislike", caffe: caffe %>
+                  <% end %>
+                <% end %>
+              </p>
             </div>
-            <small>Created <%= time_ago_in_words(caffe.created_at) %> ago</small>
+            <div class="footer-container" >
+              <div class="index-user" >
+                <% if caffe.user %>
+                  <div class="index-user-image">
+                    <%= image_tag caffe.user.avator.url, class: "index-round-img" %>
+                  </div>
+                  <div class="index-user-username">
+                    <%= link_to caffe.user.username, user_path(caffe.user) %><br>
+                    <small><%= time_ago_in_words(caffe.created_at) %> ago</small>
+                  </div>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     <% end %>
   </div>
+  <% if current_page?(root_path) %>
+    <div class="view-btn">
+      <%= link_to "View More", caffes_path,  class: "log-in-link btn" %>
+    </div>
+  <% end %>
 </div>

@@ -1,0 +1,60 @@
+<<div class="container top-page">
+  <h1 class="text-center mt-4">Like list</h1>
+  <div class="row">
+    <% @user_likes.each do |user_like|  %>
+      <div class="col-md-3 col-6">
+        <div class="card mb-4 shadow-sm">
+          <div class="card-body">
+            <a href="/caffes/<%= user_like.caffe.id %>">
+              <div class="card-img-top"><%= image_tag user_like.caffe.image.url %></div>
+              <div class="card-text-container" >
+                <% if user_like.caffe.area == "Nimman" %>
+                  <p class="card-text "><span class="area-label"><%= user_like.caffe.area %></span></p>
+                <% elsif user_like.caffe.area == "Old Town" %>
+                  <p class="card-text "><span class="area-label2"><%= user_like.caffe.area %></span></p>
+                <% elsif user_like.caffe.area == "Other" %>
+                  <p class="card-text "><span class="area-label2"><%= user_like.caffe.area %></span></p>
+                <% end %>
+                <p class="card-text caffe-name"><%= user_like.caffe.name %></p>
+                <p class="card-text"><%= truncate(user_like.caffe.comment, length:28)  %></p>
+              </div>
+            </a>
+          </div>
+          <div class="like-container">
+            <p id="caffe-<%= user_like.caffe.id %>">
+              <% if user_like.caffe.liked_by?(current_user) %>
+                <%= link_to caffe_likes_path(user_like.caffe), {method: :delete, remote: true } do %>
+                  <i class="fa fa-heart like-heart"></i>
+                <% end %>
+                <%= user_like.caffe.likes_count %>
+              <% else %>
+                <%= link_to caffe_likes_path(user_like.caffe), {method: :post, remote: true } do %>
+                  <i class="far fa-heart" aria-hidden></i>
+                <% end %>
+                <%= user_like.caffe.likes_count %>
+              <% end %>
+            </p>
+          </div>
+          <div class="footer-container" >
+            <div class="index-user" >
+              <% if user_like.caffe.user %>
+                <div class="index-user-image">
+                  <%= image_tag user_like.caffe.user.avator.url, class: "index-round-img" %>
+                </div>
+                <div class="index-user-username">
+                  <%= link_to user_like.caffe.user.username, user_path(user_like.caffe.user) %><br>
+                  <small><%= time_ago_in_words(user_like.caffe.created_at) %> ago</small>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <% if current_page?(root_path) %>
+    <div class="view-btn">
+      <%= link_to "View More", caffes_path,  class: "log-in-link btn" %>
+    </div>
+  <% end %>
+</div>

@@ -3,7 +3,6 @@ class CaffesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
-
   def show
   end
 
@@ -21,7 +20,6 @@ class CaffesController < ApplicationController
     @caffe = Caffe.new(refer_params)
     @caffe.user = current_user
     if @caffe.save
-      flash[:notice] = "Caffe was successfully created"
       redirect_to caffes_path
     else
       render 'new'
@@ -33,7 +31,6 @@ class CaffesController < ApplicationController
 
   def update
     if @caffe.update(refer_params)
-      flash[:notice] = "Caffe was successfully updated"
       redirect_to @caffe
     else
       render 'edit'
@@ -60,4 +57,5 @@ class CaffesController < ApplicationController
       redirect_to @caffe
     end
   end
+
 end

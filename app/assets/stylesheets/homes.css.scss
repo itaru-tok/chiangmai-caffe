@@ -327,21 +327,22 @@
 
 
 .top-header {
+
   h1 {
     font-size: 44px;
-    opacity: 1;
+    margin-bottom: 5px;
   }
 
   p {
     font-size: 24px;
-    opacity: 1;
+    font-family: 'Rubik Dirt', cursive;
   }
-    opacity: 0.7;
-  background-color: black;
+
+  background-color: rgba(60,48,47, 0.8);
   padding: 20px;
   position: absolute;
   left: 50%;
   top: 50%;
-  z-index: 100;
-  color: rgb(143, 129, 69);
+  z-index: 5;
+  color: rgb(211, 185, 70);
 }

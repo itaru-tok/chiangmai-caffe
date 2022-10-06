@@ -6,17 +6,18 @@
         <div class="card-body">
           <a href="/users/<%= user.id %>">
             <div class="card-img-top"><%= image_tag user.avator.url %></div>
-            <p class="card-text">
-              <p class="card-text"><%= user.username %></p>
-              <p class="card-text"><%= truncate(user.introduce, length:50)  %></p>
-            </p>
+            <div class="card-text-container" >
+              <p class="card-text card-text-username"><%= user.username %></p>
+              <p class="card-text"><%= truncate(user.introduce, length:28)  %></p>
+            </div>
           </a>
-          <% if user_signed_in? and user == current_user %>
-            <td><%= link_to "Delete", user_path(user), class: "btn btn-outline-danger", method: :delete ,data: { confirm: "Are you sure?"} %></td>
-            <td><%= link_to "Edit", edit_user_registration_path(user), class: "btn btn-outline-info" %></td>
-          <% end %>
         </div>
       </div>
     </div>
   <% end %>
 </div>
+<% if current_page?(root_path) %>
+  <div class="view-btn">
+    <%= link_to "View More", users_path,  class: "log-in-link btn" %>
+  </div>
+<% end %>

@@ -1,4 +1,4 @@
-<footer id="sticky-footer" class="py-4 bg-dark text-white">
+<footer id="sticky-footer" class="py-4 text-white <%= 'fixed-footer' if current_page?(new_user_registration_path) %> or <%= 'fixed-footer' if current_page?(new_user_session_path) %>" >
   <div class="container text-center">
     <small>Copyright &copy; <%= link_to "Itaru Tokuda", "https://itaruu.com/", class: "text-white" %></small>
   </div>

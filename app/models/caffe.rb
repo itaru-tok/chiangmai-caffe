@@ -4,6 +4,7 @@ class Caffe < ApplicationRecord
   has_many :liked_users, through: :likes, source: :user
   validates :name, presence: true, length: {minimum:3, maximum:50}
   validates :comment, presence: true, length: {minimum:3, maximum:300}
+  validates :area, presence: true
   mount_uploader :image, ImageUploader
 
   def liked_by?(user)

@@ -5,25 +5,31 @@
       <div class="card text-center shadow mb-5 bg-white rounded">
         <div class="card-body">
           <div class="card-text"><%= image_tag @caffe.image.url %></div>
-          <p class="card-text"><%= @caffe.area %></p>
-          <div class="card-text text-left"><%= simple_format(@caffe.comment) %></div>
-          <p id="caffe-<%= @caffe.id %>">
-            <% if user_signed_in? %>
-              <% if @caffe.liked_by?(current_user) %>
-                <%= render "like", caffe: @caffe %>
-              <% else %>
-                <%= render "dislike", caffe: @caffe %>
-              <% end %>
-            <% end %>
-          </p>
+          <div class="card-text-container">
+            <p class="card-text"><%= @caffe.area %></p>
+            <div class="card-text text-left"><%= simple_format(@caffe.comment) %></div>
+            <div class="like-container">
+              <p id="caffe-<%= @caffe.id %>">
+                <% if user_signed_in? %>
+                  <% if @caffe.liked_by?(current_user) %>
+                    <%= render "like", caffe: @caffe %>
+                  <% else %>
+                    <%= render "dislike", caffe: @caffe %>
+                  <% end %>
+                <% end %>
+              </p>
+            </div>
+          </div>
           <% if user_signed_in? and @caffe.user == current_user %>
-            <%= link_to "Edit", edit_caffe_path(@caffe), class: "btn btn-outline-info" %>
-            <%= link_to "Delete", caffe_path(@caffe), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+            <div class="button-area-container">
+              <%= link_to "Edit", edit_caffe_path(@caffe), class: "btn btn-outline-info" %>
+              <%= link_to "Delete", caffe_path(@caffe), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+            </div>
           <% end %>
-        </div>
-        <div class="card-footer text-muted">
-          by <%= link_to @caffe.user.username, user_path %><br>
-          <small>Created <%= time_ago_in_words(@caffe.created_at) %> ago</small>
+          <div class="footer-container" >
+            by <%= link_to @caffe.user.username, user_path %><br>
+            <small>Created <%= time_ago_in_words(@caffe.created_at) %> ago</small>
+          </div>
         </div>
       </div>
     </div>
