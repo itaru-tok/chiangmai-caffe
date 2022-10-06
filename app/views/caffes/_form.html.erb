@@ -19,11 +19,10 @@
           <%= f.label :comment, class: "col-2 col-form-label text-light" %>
           <div class="col-10">
             <%= f.text_area :comment, rows: 10, class: "form-control shadow rounded", placeholder: "Comment of caffe" %>
-            br
           </div>
         </div>
         <div class="form-group row">
-          <%= f.label :image class: "col-2 col-form-label text-light" %>
+          <%= f.label :images, class: "col-2 col-form-label text-light" %>
           <div class="col-10">
             <%= f.file_field :images, multiple: true, accept: "image/png,image/jpeg,image/jpg,image/gif" %>
           </div>

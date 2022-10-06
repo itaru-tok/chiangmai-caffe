@@ -6,7 +6,9 @@
         <div class="card mb-4 shadow-sm">
           <div class="card-body">
             <a href="/caffes/<%= caffe.id %>">
-              <div class="card-img-top"><%= image_tag caffe.image.url %></div>
+              <% if caffe.images? %>
+                <div class="card-img-top"><%= image_tag caffe.images[0].to_s %></div>
+              <% end %>
               <div class="card-text-container" >
                 <% if caffe.area == "Nimman" %>
                   <p class="card-text "><span class="area-label"><%= caffe.area %></span></p>
