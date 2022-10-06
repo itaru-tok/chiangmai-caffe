@@ -6,4 +6,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
       redirect_to root_path, alert: "guest user can't delete and edit"
     end
   end
+
+  def after_update_path_for(_resource)
+      user_path(current_user)
+  end
+
 end
