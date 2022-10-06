@@ -1,11 +1,17 @@
-<h1 class="text-center mt-4"><%= @user.username %>'s profile</h1>
-<%= image_tag @user.avator.url, size: 400 %>
-<div class="text-center mt-4">
-  <h3><%= @user.introduce %></h3>
-  <% if user_signed_in? and @user == current_user %>
-    <%= link_to "Edit your profile", edit_user_registration_path(@user), class: "mt-4 btn btn-outline-info" %>
-  <% end %>
+<div class="container">
+  <h1 class="text-center mt-4"><%= @user.username %>'s profile</h1>
+  <div class="user-profile-image" >
+    <%= image_tag @user.avator.url%>
+  </div>
+  <div class="text-center mt-4">
+    <div class="introduce-container" >
+      <p><%= simple_format(h(@user.introduce)) %></p>
+    </div>
+    <% if user_signed_in? and @user == current_user %>
+      <%= link_to "Edit your profile", edit_user_registration_path(@user), class: "mt-4 btn btn-outline-info" %>
+    <% end %>
+  </div>
+  <%= render 'shared/caffe' %>
+  <%= render 'shared/like' %>
+  <%= paginate @caffes %>
 </div>
-<%= render 'shared/caffe' %>
-<%= render 'shared/like' %>
-<%= paginate @caffes %>

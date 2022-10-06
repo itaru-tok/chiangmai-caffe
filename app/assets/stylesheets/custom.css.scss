@@ -68,11 +68,15 @@ img {
   border-color: white;
 }
 
-h1,h2,h3 {
+h1,h2 {
   margin-bottom: 40px;
   color: rgb(211, 185, 70);
   font-family: 'Rubik Dirt', cursive;
   text-align: center;
+}
+
+h3, h4 {
+  color: #fff;
 }
 
 // kaminari view bootstrap4
@@ -262,4 +266,31 @@ body {
 
 .footer-container {
 padding-top: 0;
+}
+
+.like-list-container {
+  margin-top: 0;
+}
+
+.user-profile-image {
+max-width: 500px;
+margin: 0 auto;
+
+}
+
+.below-text a{
+  color: #fff;
+}
+
+.introduce-container {
+  margin: 0 auto;
+max-width: 500px;
+  color: #fff;
+  font-size: 18px;
+  text-align: left;
+}
+
+.create-caffe-container {
+  max-width: 800px;
+  margin-top: 50px;
 }

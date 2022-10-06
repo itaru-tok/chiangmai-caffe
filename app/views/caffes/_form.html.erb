@@ -1,35 +1,38 @@
-  <%= render 'shared/errors' %>
 <div class="row justify-content-center">
-  <div class="col-10">
-    <%= form_with(model: @caffe, class: "shadow p-3 mb-3 bg-info rounded", local: true) do |f| %>
-      <div class="form-group row">
-        <%= f.label :name, class: "col-2 col-form-label text-light" %>
-        <div class="col-10">
-          <%= f.text_field :name, class: "form-control shadow rounded", placeholder: "Name of caffe" %>
+  <%= render 'shared/errors' %>
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <%= form_with(model: @caffe, class: "shadow p-3 mb-3 bg-info rounded", local: true) do |f| %>
+        <div class="form-group row">
+          <%= f.label :name, class: "col-2 col-form-label text-light" %>
+          <div class="col-10">
+            <%= f.text_field :name, class: "form-control shadow rounded", placeholder: "Name of caffe" %>
+          </div>
         </div>
-      </div>
-      <div class="form-group row">
-        <%= f.label :area, class: "col-2 col-form-label text-light" %>
-        <div class="col-10">
-          <%= f.select :area, [["Nimman", "Nimman"],["Old Town", "Old Town"], ["Other", "Other"]], {include_blank: "Please select"}, class: "form-control shadow rounded", required: true%>
+        <div class="form-group row">
+          <%= f.label :area, class: "col-2 col-form-label text-light" %>
+          <div class="col-10">
+            <%= f.select :area, [["Nimman", "Nimman"],["Old Town", "Old Town"], ["Other", "Other"]], {include_blank: "Please select"}, class: "form-control shadow rounded", required: true%>
+          </div>
         </div>
-      </div>
-      <div class="form-group row">
-        <%= f.label :comment, class: "col-2 col-form-label text-light" %>
-        <div class="col-10">
-          <%= f.text_area :comment, rows: 10, class: "form-control shadow rounded", placeholder: "Comment of caffe" %>
+        <div class="form-group row">
+          <%= f.label :comment, class: "col-2 col-form-label text-light" %>
+          <div class="col-10">
+            <%= f.text_area :comment, rows: 10, class: "form-control shadow rounded", placeholder: "Comment of caffe" %>
+            br
+          </div>
         </div>
-      </div>
-      <div class="form-group row">
-        <%= f.label :image, class: "col-2 col-form-label text-light" %>
-        <div class="col-10">
-          <%= f.file_field :image, accept: "image/png,image/jpeg,image/jpg,image/gif" %>
+        <div class="form-group row">
+          <%= f.label :image class: "col-2 col-form-label text-light" %>
+          <div class="col-10">
+            <%= f.file_field :images, multiple: true, accept: "image/png,image/jpeg,image/jpg,image/gif" %>
+          </div>
         </div>
-      </div>
-      <div class="form-group row justify-content-center">
-        <%= f.submit class: "btn btn-outline-light btn-lg" %>
-      </div>
-    <% end %>
+        <div class="form-group row justify-content-center">
+          <%= f.submit class: "btn btn-outline-light btn-lg" %>
+        </div>
+      <% end %>
+    </div>
+    <%= link_to 'Cancel and return to caffes listing', caffes_path, class: "text-info" %>
   </div>
-  <%= link_to 'Cancel and return to caffes listing', caffes_path, class: "text-info" %>
 </div>
