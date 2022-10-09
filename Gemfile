@@ -31,6 +31,7 @@ gem 'font_awesome5_rails'
 gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
 gem 'activeadmin'
+gem "mini_magick"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

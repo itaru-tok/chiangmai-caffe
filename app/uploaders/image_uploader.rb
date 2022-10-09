@@ -17,7 +17,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:
   #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-  #
     "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   end
 
@@ -30,8 +29,11 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process resize_to_fit: [50, 50]
+    process resize_to_fit:  [300, 180]
   end
+
+    # 指定サイズで切り抜く
+  process resize_to_fill: [400, 400]
 
   # Add an allowlist of extensions which are allowed to be uploaded.
   # For images you might use something like this:
@@ -52,7 +54,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     super.chomp(File.extname(super)) + ".jpg" if original_filename.present?
   end
 
-  process resize_to_limit: [200, 300]
+  # process resize_to_limit: [200, 300]
 
   def size_range
     1..(10.megabytes)
