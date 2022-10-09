@@ -1,5 +1,19 @@
-<footer id="sticky-footer" class="py-4 text-white <%= 'fixed-footer' if current_page?(new_user_registration_path) %> or <%= 'fixed-footer' if current_page?(new_user_session_path) %>" >
-  <div class="container text-center">
-    <small>Copyright &copy; <%= link_to "Itaru Tokuda", "https://itaruu.com/", class: "text-white" %></small>
-  </div>
-</footer>
+<% if current_page?(new_user_registration_path) or current_page?(new_user_session_path) %>
+  <footer id="sticky-footer" class="py-4 text-white fixed-bottom" >
+    <div class="container text-center">
+      <small>Copyright &copy; <%= link_to "Itaru Tokuda", "https://itaruu.com/", class: "text-white" %></small>
+    </div>
+  </footer>
+<% elsif params[:controller] == 'caffes' && params[:action] == 'show' %>
+  <footer id="sticky-footer" class="py-4 text-white fixed-bottom" >
+    <div class="container text-center">
+      <small>Copyright &copy; <%= link_to "Itaru Tokuda", "https://itaruu.com/", class: "text-white" %></small>
+    </div>
+  </footer>
+<% else %>
+  <footer id="sticky-footer" class="py-4 text-white" >
+    <div class="container text-center">
+      <small>Copyright &copy; <%= link_to "Itaru Tokuda", "https://itaruu.com/", class: "text-white" %></small>
+    </div>
+  </footer>
+<% end %>

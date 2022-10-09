@@ -25,8 +25,16 @@
       <div class="top-header-container" >
         <h1>Chiang Mai Caffe Map</h1>
         <p>Develop the Caffe maps of Chiang Mai</p>
-        <%= link_to "Log in", user_session_path,  class: "log-in-link btn" %>
-        <span class="log-in-inline" >and Create your Caffe <i class="fa fa-coffee" aria-hidden="true"></i></span>
+        <% unless user_signed_in? %>
+          <%= link_to "Log in", user_session_path,  class: "log-in-link btn" %>
+        <% end %>
+        <span class="log-in-inline" >
+          <% unless user_signed_in? %>
+            <span>and </span>Create
+          <% else %>
+            <%= link_to 'Create', new_caffe_path, class: "log-in-link log-in-link-create btn" %>
+          <% end %>
+          <span>your Caffe</span><i class="fa fa-coffee" aria-hidden="true"></i></span>
       </div>
     </div>
   </div>

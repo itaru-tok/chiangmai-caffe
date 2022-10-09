@@ -1,30 +1,54 @@
-<h2 class="text-center mt-4"><%= @caffe.name %></h2>
-<div class="container">
+<div class="container caffe-show-container">
+  <h2 class="text-center mt-4"><%= @caffe.name %></h2>
   <div class="row justify-content-md-center">
     <div class="col-8 mt-4">
-      <div class="card text-center shadow mb-5 bg-white rounded">
-        <div class="card-body">
+      <div class="card text-center shadow mb-5 bg-white rounded card-container">
+        <div class="card-body card-body-show-caffe">
           <div class="card-text">
-            <% if @caffe.images? %>
-              <% @caffe.images.each do |image| %>
-                <%= image_tag image.to_s %>
-              <% end %>
-            <% end %>
-          </div>
-          <div class="card-text-container">
-            <p class="card-text"><%= @caffe.area %></p>
-            <div class="card-text text-left"><%= simple_format(@caffe.comment) %></div>
-            <div class="like-container">
-              <p id="caffe-<%= @caffe.id %>">
-                <% if user_signed_in? %>
-                  <% if @caffe.liked_by?(current_user) %>
-                    <%= render "like", caffe: @caffe %>
-                  <% else %>
-                    <%= render "dislike", caffe: @caffe %>
+            <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
+              <div class="swiper-wrapper">
+                <% if @caffe.images? %>
+                  <% @caffe.images.each do |image| %>
+                    <div class="swiper-slide"><%= image_tag image.to_s %>
+                    </div>
                   <% end %>
                 <% end %>
-              </p>
+              </div>
             </div>
+            <div thumbsSlider="" class="swiper mySwiper">
+              <div class="swiper-wrapper">
+                <% if @caffe.images? %>
+                  <% @caffe.images.each do |image| %>
+                    <div class="swiper-slide"><%= image_tag image.to_s %>
+                    </div>
+                  <% end %>
+                <% end %>
+              </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-text-container card-text-caffe-show-container">
+          <% if @caffe.area == "Nimman" %>
+            <p class="card-text "><span class="area-label"><%= @caffe.area %></span></p>
+          <% elsif @caffe.area == "Old Town" %>
+            <p class="card-text "><span class="area-label2"><%= @caffe.area %></span></p>
+          <% elsif @caffe.area == "Other" %>
+            <p class="card-text "><span class="area-label3"><%= @caffe.area %></span></p>
+          <% end %>
+          <div class="card-text text-left caffe-name-show"><%= simple_format(@caffe.name) %></div>
+          <div class="card-text text-left"><%= simple_format(@caffe.comment) %></div>
+          <div class="like-container">
+            <p id="caffe-<%= @caffe.id %>">
+              <% if user_signed_in? %>
+                <% if @caffe.liked_by?(current_user) %>
+                  <%= render "like", caffe: @caffe %>
+                <% else %>
+                  <%= render "dislike", caffe: @caffe %>
+                <% end %>
+              <% end %>
+            </p>
           </div>
           <% if user_signed_in? and @caffe.user == current_user %>
             <div class="button-area-container">
@@ -33,11 +57,12 @@
             </div>
           <% end %>
           <div class="footer-container" >
-            by <%= link_to @caffe.user.username, user_path %><br>
+            by <%= link_to @caffe.user.username, user_path(@caffe.user), class: "username-color" %><br>
             <small>Created <%= time_ago_in_words(@caffe.created_at) %> ago</small>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>

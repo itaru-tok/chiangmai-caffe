@@ -39,7 +39,7 @@
                     <%= image_tag caffe.user.avator.url, class: "index-round-img" %>
                   </div>
                   <div class="index-user-username">
-                    <%= link_to caffe.user.username, user_path(caffe.user) %><br>
+                    <%= link_to caffe.user.username, user_path(caffe.user), class: "username-color" %><br>
                     <small><%= time_ago_in_words(caffe.created_at) %> ago</small>
                   </div>
                 <% end %>
