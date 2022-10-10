@@ -5,6 +5,7 @@ class Caffe < ApplicationRecord
   validates :name, presence: true, length: {minimum:3, maximum:50}
   validates :comment, presence: true, length: {minimum:3, maximum:300}
   validates :area, presence: true
+  validates :images, presence: true
   mount_uploaders :images, ImageUploader
 
   def liked_by?(user)
