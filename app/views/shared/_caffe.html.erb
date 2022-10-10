@@ -1,4 +1,4 @@
-<div class="container top-page">
+<div class="container top-page <%= 'user-show-container' if params[:controller] == 'users' && params[:action] == 'show'%> ">
   <h1 class="text-center mt-4">Caffe list</h1>
   <div class="row">
     <% @caffes.each do |caffe|  %>
@@ -21,17 +21,17 @@
                 <p class="card-text"><%= truncate(caffe.comment, length:28)  %></p>
               </div>
             </a>
-            <div class="like-container">
-              <p id="caffe-<%= caffe.id %>">
-                <% if user_signed_in? %>
+            <% if user_signed_in? %>
+              <div class="like-container">
+                <p id="caffe-<%= caffe.id %>">
                   <% if caffe.liked_by?(current_user) %>
                     <%= render "caffes/like", caffe: caffe %>
                   <% else %>
                     <%= render "caffes/dislike", caffe: caffe %>
                   <% end %>
-                <% end %>
-              </p>
-            </div>
+                </p>
+              </div>
+            <% end %>
             <div class="footer-container" >
               <div class="index-user" >
                 <% if caffe.user %>

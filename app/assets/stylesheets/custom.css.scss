@@ -64,10 +64,16 @@ img {
 }
 
 h1,h2 {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   color: rgb(211, 185, 70);
   font-family: 'Rubik Dirt', cursive;
   text-align: center;
+  margin-top: 0px !important;
+}
+
+.mt-4,
+.my-4 {
+  margin-top: 1rem !important;
 }
 
 h3, h4 {
@@ -190,8 +196,12 @@ text-align: center;
 
 .view-btn {
 margin: 0 auto;
-margin-top: 20px;
+margin-top: 0px;
 text-align: center;
+}
+
+.show-caffe-container {
+  margin-bottom: 30px !important;
 }
 
 .view-btn .btn {
@@ -254,13 +264,9 @@ body {
 }
 
 footer {
-    background-color: black;
+    background-color: #212529;
     width: 100%;
     text-align: center;
-}
-
-.footer-container {
-padding-top: 0;
 }
 
 .like-list-container {
@@ -407,4 +413,27 @@ margin-right: 10px;
   color: rgb(211, 185, 70);
   opacity: 0.8;
   transition: 0.3s;
+}
+
+.dropdown-menu {
+  background-color: #212529 !important;
+}
+
+.dropdown-item {
+  color: #fff !important;
+}
+
+.dropdown-item:hover {
+  color: #212529 !important;
+}
+
+.bg-light {
+  background-color: #212529 !important;
+}
+
+.pagination .first {
+  display: none;
+}
+.pagination .last {
+  display: none;
 }

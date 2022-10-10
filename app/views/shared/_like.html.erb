@@ -22,21 +22,23 @@
               </div>
             </a>
           </div>
-          <div class="like-container">
-            <p id="caffe-<%= user_like.caffe.id %>">
-              <% if user_like.caffe.liked_by?(current_user) %>
-                <%= link_to caffe_likes_path(user_like.caffe), {method: :delete, remote: true } do %>
-                  <i class="fa fa-heart like-heart"></i>
+          <% if user_signed_in? %>
+            <div class="like-container">
+              <p id="caffe-<%= user_like.caffe.id %>">
+                <% if user_like.caffe.liked_by?(current_user) %>
+                  <%= link_to caffe_likes_path(user_like.caffe), {method: :delete, remote: true } do %>
+                    <i class="fa fa-heart like-heart"></i>
+                  <% end %>
+                  <%= user_like.caffe.likes_count %>
+                <% else %>
+                  <%= link_to caffe_likes_path(user_like.caffe), {method: :post, remote: true } do %>
+                    <i class="far fa-heart" aria-hidden></i>
+                  <% end %>
+                  <%= user_like.caffe.likes_count %>
                 <% end %>
-                <%= user_like.caffe.likes_count %>
-              <% else %>
-                <%= link_to caffe_likes_path(user_like.caffe), {method: :post, remote: true } do %>
-                  <i class="far fa-heart" aria-hidden></i>
-                <% end %>
-                <%= user_like.caffe.likes_count %>
-              <% end %>
-            </p>
-          </div>
+              </p>
+            </div>
+          <% end %>
           <div class="footer-container" >
             <div class="index-user" >
               <% if user_like.caffe.user %>
