@@ -1,5 +1,5 @@
 class ChangeDataImageToCaffe < ActiveRecord::Migration[6.1]
   def change
-    change_column :caffes, :images, "json USING CAST(images AS json)"
+    change_column :caffes, :images, :json
   end
 end
