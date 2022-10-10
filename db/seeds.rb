@@ -65,7 +65,7 @@
 # Caffe.create!(name: "caffe nimman", comment: "Perfect place for Digital Nomad", user_id: user8.id)
 # Caffe.create!(name: "caffe nimman", comment: "Fantastic place for Digital Nomad", user_id: user8.id)
 # puts "初期データの投入に成功しました！"
-# AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+AdminUser.create!(email: 'itaruo93oo@gmail.com', password: 'kami3107', password_confirmation: 'kami3107') if Rails.env.production?
 
 # likeのデータ追加
 # user = User.find_by(id: 1)
