@@ -24,7 +24,7 @@
 * フレームワーク：Ruby on Rails (6.1.6)
 * フロントエンド：HTML/Scss/JavaScript
 * DB：PostgreSQL
-* インフラ：Heroku/AWS（EC2）
+* インフラ：Heroku/AWS（S3）
 * ソースコード管理：GitHub
 * 開発環境：MacOS/Visual Studio Code
 
