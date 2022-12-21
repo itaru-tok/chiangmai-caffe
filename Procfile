@@ -1,1 +1,0 @@
-web: chiangmai_caffe
